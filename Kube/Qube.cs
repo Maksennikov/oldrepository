@@ -8,6 +8,21 @@ namespace Kube
 {
     public class Qube
     {
-       public int _number;
+       private int _number;
+       public int Number
+       {
+           get { return _number; }
+           set { _number = value; }
+       }
+
+       /// <summary>
+       /// Sets random number to Number
+       /// </summary>
+       public void SetNumber()
+       {
+           Random rnd = new Random(6);
+           Number = rnd.Next(1, 6);
+           Number = Convert.ToInt16(Number);
+       }
     }
 }

@@ -55,7 +55,7 @@
     </ApplicationDefinition>
     <Compile Include="Game.cs" />
     <Compile Include="Human.cs" />
-    <Compile Include="PC.cs" />
+    <Compile Include="Computer.cs" />
     <Compile Include="Qube.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -71,7 +71,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player.cs" />
+    <Compile Include="PlayerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

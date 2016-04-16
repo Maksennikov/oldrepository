@@ -22,7 +22,7 @@ namespace Kube
     {
         Human _human = new Human();
         Game _game = new Game();
-        PC _pc = new PC();
+        Computer _pc = new Computer();
         public MainWindow()
         {
 

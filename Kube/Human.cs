@@ -6,35 +6,37 @@ using System.Threading.Tasks;
 
 namespace Kube
 {
-    public class Human: Player
+    public class Human: PlayerBase
     {
         public override void QubeThrow()
         {
-            if (_aloudToReplay)
+            if (AllowToReplay)
             {
-                _QNumber.Next(1, 6);
-                _Qube._number = Convert.ToInt16(_QNumber);
-                if (_Qube._number > 1)
+                //Присваивание кубу цифру убрал в сам куб
+                Qube.SetNumber();
+
+                if (Qube.Number > 1)
                 {
-                    _localpoints = _localpoints + _Qube._number;
+                    LocalPoints = LocalPoints + Qube.Number;
                 }
                 else
                 {
-                    _localpoints = 0;
-                    _aloudToReplay = false;
+                    //Если на кубе единица, то и в локальный счет нужно класть единицу, поправил
+                    LocalPoints = 1;
+                    AllowToReplay = false;
                 }
             }
         }
 
         public override void EndTurn()
         {
-            _allpoints = _allpoints + _localpoints;
-            _localpoints = 0;
+            AllPoints = AllPoints + LocalPoints;
+            LocalPoints = 0;
         }
 
         public void MyTime()
         {
-            _aloudToReplay = true;
+            AllowToReplay = true;
         }
     }
 }

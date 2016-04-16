@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace Kube
 {
-    public class PC: Player
+    public class Computer: PlayerBase
     {
         public delegate void MethodIAmDone();
-
         public event MethodIAmDone OnPCEndTurn;
+
         public override void QubeThrow()
         {
-            _QNumber.Next(1, 6);
-            _Qube._number = Convert.ToInt16(_QNumber);
-            _allpoints = _allpoints + _Qube._number;
-            
-
+            Qube.SetNumber();
+            AllPoints = AllPoints + Qube.Number;
         }
+
         public override void EndTurn()
         {
             OnPCEndTurn();
