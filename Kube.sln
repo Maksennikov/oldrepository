@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kube", "Kube\Kube.csproj", "{81BEA191-25A1-4403-9272-C595D7016EE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{BA0486DE-603F-4383-8832-7BBE76789DCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{81BEA191-25A1-4403-9272-C595D7016EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81BEA191-25A1-4403-9272-C595D7016EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BEA191-25A1-4403-9272-C595D7016EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0486DE-603F-4383-8832-7BBE76789DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0486DE-603F-4383-8832-7BBE76789DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0486DE-603F-4383-8832-7BBE76789DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0486DE-603F-4383-8832-7BBE76789DCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

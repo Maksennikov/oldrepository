@@ -17,8 +17,9 @@ namespace Kube
 
                 if (Qube.Number > 1)
                 {
-                    LocalPoints = LocalPoints + Qube.Number;
+                    LocalPoints += Qube.Number;
                 }
+
                 else
                 {
                     //Если на кубе единица, то и в локальный счет нужно класть единицу, поправил
@@ -30,10 +31,11 @@ namespace Kube
 
         public override void EndTurn()
         {
-            AllPoints = AllPoints + LocalPoints;
+            AllPoints += LocalPoints;
             LocalPoints = 0;
         }
 
+        //сделать AllowToReplay протектедом, чтобы снаружи нельзя было до него добраться(подумать как)
         public void MyTime()
         {
             AllowToReplay = true;

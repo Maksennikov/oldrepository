@@ -49,12 +49,17 @@ namespace Kube
             Qube = new Qube();
         }
         
-
+        /// <summary>
+        /// Throw qube's number, set points
+        /// </summary>
         public virtual void QubeThrow()
         {
 
         }
 
+        /// <summary>
+        /// End this player's turn, move to another player
+        /// </summary>
         public virtual void EndTurn()
         {
             

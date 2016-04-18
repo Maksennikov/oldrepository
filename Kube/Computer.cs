@@ -14,7 +14,7 @@ namespace Kube
         public override void QubeThrow()
         {
             Qube.SetNumber();
-            AllPoints = AllPoints + Qube.Number;
+            AllPoints += Qube.Number;
         }
 
         public override void EndTurn()
