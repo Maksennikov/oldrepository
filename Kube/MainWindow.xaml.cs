@@ -20,17 +20,19 @@ namespace Kube
     /// </summary>
     public partial class MainWindow : Window
     {
-        Human _human = new Human();
-        Game _game = new Game();
-        Computer _pc = new Computer();
+        GameViewModel StartGame = new GameViewModel();
+
         public MainWindow()
         {
 
             InitializeComponent();
-            _game.OnEndTurn += _human.EndTurn;
-            _pc.OnPCEndTurn += _human.MyTime;
+            StartGame._game.OnEndGame += ShowWiner;       
 
+        }
 
+        public void ShowWiner(string name)
+        {
+            MessageBox.Show("And the winers is " + name);
         }
     }
 }

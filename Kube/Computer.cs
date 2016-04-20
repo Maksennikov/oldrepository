@@ -11,15 +11,20 @@ namespace Kube
         public delegate void MethodIAmDone();
         public event MethodIAmDone OnPCEndTurn;
 
+        public delegate void MethodIAmDoneGame(int x, string n);
+        public event MethodIAmDoneGame OnPCEndTurnForGame;
+
         public override void QubeThrow()
         {
             Qube.SetNumber();
             AllPoints += Qube.Number;
+            EndTurn();
         }
 
         public override void EndTurn()
         {
             OnPCEndTurn();
+            OnPCEndTurnForGame(AllPoints, Name);
         }
     }
 }

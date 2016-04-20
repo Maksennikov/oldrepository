@@ -8,11 +8,17 @@ namespace Kube
 {
     public class Human: PlayerBase
     {
+        /// <summary>
+        /// AllPoints
+        /// </summary>
+        /// <param name="x"></param>
+        public delegate void MethodStartEndTurn(int x, string n);
+        public event MethodStartEndTurn OnEndTurn;
+
         public override void QubeThrow()
         {
             if (AllowToReplay)
             {
-                //Присваивание кубу цифру убрал в сам куб
                 Qube.SetNumber();
 
                 if (Qube.Number > 1)
@@ -22,9 +28,8 @@ namespace Kube
 
                 else
                 {
-                    //Если на кубе единица, то и в локальный счет нужно класть единицу, поправил
-                    LocalPoints = 1;
-                    AllowToReplay = false;
+                    LocalPoints = 0;
+                    EndTurn();
                 }
             }
         }
@@ -32,10 +37,11 @@ namespace Kube
         public override void EndTurn()
         {
             AllPoints += LocalPoints;
+            AllowToReplay = false;
+            OnEndTurn(AllPoints, Name);
             LocalPoints = 0;
         }
 
-        //сделать AllowToReplay протектедом, чтобы снаружи нельзя было до него добраться(подумать как)
         public void MyTime()
         {
             AllowToReplay = true;
