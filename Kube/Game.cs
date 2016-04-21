@@ -16,27 +16,37 @@ namespace Kube
 
         private int _winPoints;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Game()
         {
             _winPoints = 10;
         } 
 
+        /// <summary>
+        /// Switches game to the next step
+        /// </summary>
+        /// <param name="points">AllPoints</param>
+        /// <param name="name">Name of the player</param>
         public void StartEndTurn(int points, string name)
         {
             if (PointCheck(points))
                 OnEndGame(name);
             else
-                OnEndTurn();
-            
+                OnEndTurn();            
         }
 
+        /// <summary>
+        /// Solves if win condition is done
+        /// </summary>
+        /// <param name="pointsTocheck">Points which will be checked</param>
+        /// <returns></returns>
         private bool PointCheck(int pointsTocheck)
         {
             if (pointsTocheck >= _winPoints)
                 return true;
-            else return false;
-
-            
+            else return false;            
         }
 
         

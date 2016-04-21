@@ -24,10 +24,11 @@ namespace Kube
 
         public MainWindow()
         {
-
             InitializeComponent();
-            StartGame._game.OnEndGame += ShowWiner;       
+            StartGame.TheGame.OnEndGame += ShowWiner;
 
+            PlayerPoints.DataContext = StartGame.MainPLayer;
+            ComputerPoints.DataContext = StartGame.Pc;
         }
 
         public void ShowWiner(string name)

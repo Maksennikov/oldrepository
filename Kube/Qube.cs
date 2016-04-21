@@ -21,8 +21,8 @@ namespace Kube
        public void SetNumber()
        {
            Random rnd = new Random(6);
-           Number = rnd.Next(1, 6);
-           Number = Convert.ToInt16(Number);
+           _number = rnd.Next(1, 6);
+           _number = Convert.ToInt16(Number);
        }
     }
 }

@@ -9,7 +9,6 @@ namespace Kube
     public abstract class PlayerBase
     {
 
-
         #region arrangment
         
         private bool _allowToReplay;
@@ -38,7 +37,6 @@ namespace Kube
         public Qube Qube
         {
             get { return _qube; }
-            set { _qube = value; }
         }
 
         private int _localpoints;
@@ -56,7 +54,7 @@ namespace Kube
         {
             AllowToReplay = true;
             LocalPoints = 0;
-            Qube = new Qube();
+            _qube = new Qube();
         }
         
         /// <summary>

@@ -8,26 +8,45 @@ namespace Kube
 {
     public class GameViewModel
     {
-        public Human _human;
-        public Game _game;
-        public Computer _pc;
+        #region arrangment
+        private Human _human;
+        public Human MainPLayer
+        {
+            get { return _human; }
+            set { _human = value; }
+        }
+
+        private Game _game;
+        public Game TheGame
+        {
+            get { return _game; }
+            set { _game = value; }
+        }
+
+        private Computer _pc;
+        public Computer Pc
+        {
+            get { return _pc; }
+            set { _pc = value; }
+        }
+        #endregion
 
         /// <summary>
         /// Constructor
         /// </summary>
         public GameViewModel()
         {
-            _human = new Human();
-            _game = new Game();
-            _pc = new Computer();
+            MainPLayer = new Human();
+            TheGame = new Game();
+            Pc = new Computer();
 
 
-            _game.OnEndTurn += _pc.QubeThrow;
+            TheGame.OnEndTurn += _pc.QubeThrow;
 
-            _pc.OnPCEndTurn += _human.MyTime;
-            _pc.OnPCEndTurnForGame += _game.StartEndTurn;
+            Pc.OnPCEndTurn += MainPLayer.MyTime;
+            Pc.OnPCEndTurnForGame += TheGame.StartEndTurn;
 
-            _human.OnEndTurn += _game.StartEndTurn;
+            MainPLayer.OnEndTurn += TheGame.StartEndTurn;
         }
     }
 }
