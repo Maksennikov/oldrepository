@@ -21,7 +21,7 @@ namespace Kube
         /// </summary>
         public Game()
         {
-            _winPoints = 10;
+            _winPoints = 30;
         } 
 
         /// <summary>
@@ -46,7 +46,8 @@ namespace Kube
         {
             if (pointsTocheck >= _winPoints)
                 return true;
-            else return false;            
+            else
+                return false;            
         }
 
         

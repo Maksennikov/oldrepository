@@ -40,6 +40,8 @@ namespace Kube
             TheGame = new Game();
             Pc = new Computer();
 
+            MainPLayer.Name = "Vasya";
+            Pc.Name = "SuperComp";
 
             TheGame.OnEndTurn += _pc.QubeThrow;
 

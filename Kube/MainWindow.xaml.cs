@@ -21,19 +21,27 @@ namespace Kube
     public partial class MainWindow : Window
     {
         GameViewModel StartGame = new GameViewModel();
+        
 
         public MainWindow()
         {
             InitializeComponent();
             StartGame.TheGame.OnEndGame += ShowWiner;
 
-            PlayerPoints.DataContext = StartGame.MainPLayer;
+            MP.DataContext = StartGame.MainPLayer;
             ComputerPoints.DataContext = StartGame.Pc;
+
+            CurrentPoints.DataContext = StartGame.MainPLayer.Qube;
         }
 
         public void ShowWiner(string name)
         {
             MessageBox.Show("And the winers is " + name);
+        }
+
+        private void DiceThrow_Click(object sender, RoutedEventArgs e)
+        {
+            StartGame.MainPLayer.QubeThrow();
         }
     }
 }

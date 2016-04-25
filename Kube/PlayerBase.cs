@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Kube
 {
-    public abstract class PlayerBase
+    public abstract class PlayerBase : INotifyPropertyChanged
     {
 
         #region arrangment
@@ -30,7 +31,11 @@ namespace Kube
         public int AllPoints
         {
             get { return _allpoints; }
-            set { _allpoints = value; }
+            set
+            {
+                _allpoints = value;
+                OnPropertyChanged("AllPoints");
+            }
         }
 
         private Qube _qube;
@@ -43,7 +48,11 @@ namespace Kube
         public int LocalPoints
         {
             get { return _localpoints; }
-            set { _localpoints = value; }
+            set
+            {
+                _localpoints = value;
+                OnPropertyChanged("LocalPoints");
+            }
         }
         #endregion
 
@@ -71,6 +80,15 @@ namespace Kube
         public virtual void EndTurn()
         {
             
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
         }
 
     }
