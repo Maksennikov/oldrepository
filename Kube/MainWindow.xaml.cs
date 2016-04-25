@@ -43,5 +43,10 @@ namespace Kube
         {
             StartGame.MainPLayer.QubeThrow();
         }
+
+        private void EndTurnButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartGame.MainPLayer.EndTurn();
+        }
     }
 }
