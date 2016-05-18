@@ -40,15 +40,17 @@ namespace Kube
             TheGame = new Game();
             Pc = new Computer();
 
-            MainPLayer.Name = "Vasya";
+            MainPLayer.Name = "Akakii";
             Pc.Name = "SuperComp";
-
-            TheGame.OnEndTurn += _pc.QubeThrow;
+ 
 
             Pc.OnPCEndTurn += MainPLayer.MyTime;
             Pc.OnPCEndTurnForGame += TheGame.StartEndTurn;
 
-            MainPLayer.OnEndTurn += TheGame.StartEndTurn;
+            MainPLayer.OnEndTurnHumanForPC += Pc.QubeThrow;
+            MainPLayer.OnEndTurnHuman += TheGame.StartEndTurn;
+
+            TheGame.OnEndTurn += MainPLayer.MyTime;
         }
     }
 }

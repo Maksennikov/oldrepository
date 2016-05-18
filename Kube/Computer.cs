@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Kube
 {
@@ -17,7 +18,9 @@ namespace Kube
         public override void QubeThrow()
         {
             Qube.SetNumber();
+
             AllPoints += Qube.Number;
+
             EndTurn();
         }
 

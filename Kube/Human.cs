@@ -13,24 +13,43 @@ namespace Kube
         /// </summary>
         /// <param name="x"></param>
         public delegate void MethodStartEndTurn(int x, string n);
-        public event MethodStartEndTurn OnEndTurn;
+        public event MethodStartEndTurn OnEndTurnHuman;
+
+        public delegate void MethodStartEndTurnForPC();
+        public event MethodStartEndTurnForPC OnEndTurnHumanForPC;
+
+        int kostil = 0;
 
         public override void QubeThrow()
         {
-            if (AllowToReplay)
+            if (kostil == 1)
+            {
+                if (AllowToReplay)
+                {
+                    Qube.SetNumber();
+
+                    if (Qube.Number > 1)
+                    {
+                        LocalPoints += Qube.Number;
+                    }
+
+                    else
+                    {
+                        LocalPoints = 0;
+                        EndTurn();
+                    }
+                }
+            }
+
+
+            if (kostil == 0)
             {
                 Qube.SetNumber();
-
-                if (Qube.Number > 1)
+                if (Qube.Number > 3)
                 {
-                    LocalPoints += Qube.Number;
-                }
-
-                else
-                {
-                    LocalPoints = 0;
                     EndTurn();
                 }
+                kostil++;
             }
         }
 
@@ -38,7 +57,8 @@ namespace Kube
         {
             AllPoints += LocalPoints;
             AllowToReplay = false;
-            OnEndTurn(AllPoints, Name);
+            OnEndTurnHuman(AllPoints, Name);
+            OnEndTurnHumanForPC();
             LocalPoints = 0;
         }
 

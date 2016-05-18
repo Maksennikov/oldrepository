@@ -36,7 +36,7 @@ namespace Kube
 
         public void ShowWiner(string name)
         {
-            MessageBox.Show("And the winers is " + name);
+            MessageBox.Show("And the winner is " + name);
         }
 
         private void DiceThrow_Click(object sender, RoutedEventArgs e)
